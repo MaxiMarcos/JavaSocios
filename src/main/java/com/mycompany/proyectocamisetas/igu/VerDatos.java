@@ -40,13 +40,13 @@ public class VerDatos extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(34, 40, 44));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("DATOS");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(34, 40, 44));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
         jScrollPane1.setBorder(null);
