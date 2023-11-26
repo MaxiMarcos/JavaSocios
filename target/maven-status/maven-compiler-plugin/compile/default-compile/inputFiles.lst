@@ -3,10 +3,12 @@ C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\logica\Cliente.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\persistencia\ClienteJpaController.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\igu\CargaDatos.java
+C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\igu\BuscarDni.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\persistencia\exceptions\NonexistentEntityException.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\ProyectoCamisetas.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\igu\VerDatos.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\persistencia\ControladoraPersistencia.java
+C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\igu\EdicionDatos.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\igu\Principal.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\logica\Producto.java
 C:\Users\Usuario\Documents\NetBeansProjects\proyectoCamisetas\src\main\java\com\mycompany\proyectocamisetas\persistencia\ProductoJpaController.java

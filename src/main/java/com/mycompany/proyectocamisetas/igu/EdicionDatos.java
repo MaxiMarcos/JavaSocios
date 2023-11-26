@@ -1,19 +1,23 @@
 
 package com.mycompany.proyectocamisetas.igu;
 
+import com.mycompany.proyectocamisetas.logica.Cliente;
 import com.mycompany.proyectocamisetas.logica.ControladoraLogica;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 
-public class CargaDatos extends javax.swing.JFrame {
+public class EdicionDatos extends javax.swing.JFrame {
 
-    ControladoraLogica control = new ControladoraLogica();
+    ControladoraLogica control = null;
+    int num_cliente;
+    Cliente socio;
     
-    
-    public CargaDatos() {
-        //control = new Controladora();
+    public EdicionDatos(int num_cliente) {
+        control = new ControladoraLogica();
+        //this.num_cliente = num_cliente;
         initComponents();
+        cargarDatos(num_cliente);
     }
 
 
@@ -46,7 +50,7 @@ public class CargaDatos extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(204, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel1.setText("Carga de Datos");
+        jLabel1.setText("Edición de Datos");
 
         jLabel3.setText("DNI");
 
@@ -87,7 +91,7 @@ public class CargaDatos extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setText("GUARDAR");
+        btnGuardar.setText("GUARDAR CAMBIOS");
         btnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,12 +150,10 @@ public class CargaDatos extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(199, 199, 199)))
-                        .addGap(145, 145, 145))))
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +227,7 @@ public class CargaDatos extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
+        // Los datos del socio
         String estadoPeña = txtEstadoPeña.getText();
         String nombre = txtNombre.getText();
         String dni = txtDni.getText();
@@ -232,14 +235,11 @@ public class CargaDatos extends javax.swing.JFrame {
         String celular = txtCel.getText();
         String socioCai = (String) cmbSocioCai.getSelectedItem();
         
-        control.guardar(estadoPeña, nombre, dni, metodoPago, celular, socioCai);
+        control.guardarModificar(socio, estadoPeña, nombre, dni, metodoPago, celular, socioCai);
         
         // Mensaje que aparecerá al apretar GUARDAR
-        JOptionPane optionPane = new JOptionPane("Se guardó correctamente");
-        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        JDialog dialog = optionPane.createDialog("Guardado exitoso");
-        dialog.setAlwaysOnTop(true);
-        dialog.setVisible(true);
+        mostrarMensaje("Modificación realizada", "Info", "Edicion correcta");
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
@@ -271,4 +271,45 @@ public class CargaDatos extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstadoPeña;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos(int num_cliente) {
+        this.socio = control.traerSocio(num_cliente);
+        
+        txtNombre.setText(socio.getNombre());
+        txtCel.setText(socio.getCelular());
+        txtEstadoPeña.setText(socio.getEstadoPeña());
+        txtDni.setText(socio.getDni());
+        
+        if (socio.getMetodoPago().equals("Debito")) {           
+            cmbMetodoDePago.setSelectedIndex(0);
+     }
+        else {
+            if(socio.getMetodoPago().equals("Efectivo")) {
+                cmbMetodoDePago.setSelectedIndex(1);
+            }
+        }  
+         
+        if (socio.getSocioCai().equals("SI")) {           
+            cmbSocioCai.setSelectedIndex(0);
+     }
+        else {
+            if(socio.getSocioCai().equals("NO")) {
+                cmbSocioCai.setSelectedIndex(1);
+            }
+        }  
+  
+    }
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+        // Mensaje que aparecerá al apretar GUARDAR
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
 }

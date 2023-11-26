@@ -2,8 +2,10 @@
 package com.mycompany.proyectocamisetas.igu;
 
 import com.mycompany.proyectocamisetas.logica.ControladoraLogica;
-import com.mycompany.proyectocamisetas.logica.Producto;
+import com.mycompany.proyectocamisetas.logica.Cliente;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -27,7 +29,7 @@ public class VerDatos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         miTabla = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        btnEliminar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnEliminar1 = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
@@ -64,11 +66,11 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Socios:");
 
-        btnEliminar.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lapiz.png"))); // NOI18N
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lapiz.png"))); // NOI18N
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
@@ -101,7 +103,7 @@ public class VerDatos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 31, Short.MAX_VALUE))
@@ -109,15 +111,15 @@ public class VerDatos extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(126, 126, 126)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
@@ -135,14 +137,14 @@ public class VerDatos extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
@@ -155,36 +157,82 @@ public class VerDatos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (miTabla.getRowCount() > 0) {
+            // controlo que se haya seleccionado una fila
+            if (miTabla.getSelectedRow()!=-1) {
+                // obtengo id de cliente para eliminar
+                int num_cliente = Integer.parseInt (String.valueOf(miTabla.getValueAt (miTabla.getSelectedRow(), 0)));
+                
+                // abrir la interfaz de EdicionDatos
+                EdicionDatos pantallaModif = new EdicionDatos(num_cliente);
+                pantallaModif.setVisible(true);
+                pantallaModif.setLocationRelativeTo(null);
+                
+            }else
+            mostrarMensaje ("no seleccionó nada", "Error", "Error al eliminar");
+        }else
+            mostrarMensaje ("No hay datos para eliminar", "Error", "Sin socios cargados");
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
-        // TODO add your handling code here:
+          //controlo q la tabla no esté vacia
+        if (miTabla.getRowCount() > 0) {
+            // controlo que se haya seleccionado una fila
+            if (miTabla.getSelectedRow()!=-1) {
+                // obtengo id de cliente para eliminar
+                int num_cliente = Integer.parseInt (String.valueOf(miTabla.getValueAt (miTabla.getSelectedRow(), 0)));
+                
+                //llamo metodo borrar
+                control.borrarCliente(num_cliente);
+                
+                // Mensaje que aparecerá al apretar GUARDAR
+                
+                mostrarMensaje ("socio eliminado correctamente", "Info", "Borrado de socio");
+                cargarTabla();
+            }else
+            mostrarMensaje ("no seleccionó nada", "Error", "Error al eliminar");
+        }else
+            mostrarMensaje ("No hay datos para eliminar", "Error", "Sin socios cargados");
+        
     }//GEN-LAST:event_btnEliminar1ActionPerformed
 
+    public void mostrarMensaje(String mensaje, String tipo, String titulo) {
+        // Mensaje que aparecerá al apretar GUARDAR
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("Info")) {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(tipo.equals("Error")) {
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
+    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
         cargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        BuscarDni pantallaBuscar = new BuscarDni();
+        pantallaBuscar.setVisible(true);
+        pantallaBuscar.setLocationRelativeTo(null); 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -194,7 +242,7 @@ public class VerDatos extends javax.swing.JFrame {
     private javax.swing.JTable miTabla;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarTabla() {
+    public void cargarTabla() {
         
         //definir modelo de la tabla
         
@@ -210,20 +258,20 @@ public class VerDatos extends javax.swing.JFrame {
         
         //Establecer nombres de columnas
         
-        String titulos[] = {"Id", "Categoria", "Producto", "Talle"};       
+        String titulos[] = {"Id", "Nombre", "DNI", "Cuota"};       
         tabla.setColumnIdentifiers(titulos);
         
         //Cargas de datos desde BD
-        List<Producto> listaProd = control.traerProductos();
+        List<Cliente> listaCliente = control.traerClientes();
     
     
         //Recorrer lista y mostrar
     
-    if (listaProd!=null) {
+    if (listaCliente!=null) {
     
-    for(Producto prod : listaProd) {
+    for(Cliente cli : listaCliente) {
         
-        Object[] producto = {prod.getCategoria(), prod.getIdProd(), prod.getProducto(), prod.getTalle(), prod.getUnCliente()};
+        Object[] producto = {cli.getId(), cli.getNombre(), cli.getDni(), cli.getEstadoPeña()};
 
         tabla.addRow(producto);
     }
@@ -231,4 +279,6 @@ public class VerDatos extends javax.swing.JFrame {
 
     miTabla.setModel(tabla); // importamos los elementos del modelo de tabla (DefaultTableModel tabla) en miTabla para que finalmente se muestre
 }
+    
+   
 }
