@@ -93,6 +93,10 @@ public class ClienteJpaController implements Serializable {
     public List<Cliente> findClienteEntities() {
         return findClienteEntities(true, -1, -1);
     }
+    
+    /* public  List<Cliente> findByDni() {
+        return findByDni();
+    }*/
 
     public List<Cliente> findClienteEntities(int maxResults, int firstResult) {
         return findClienteEntities(false, maxResults, firstResult);
