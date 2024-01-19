@@ -1,8 +1,7 @@
-# Aplicación para control de socios.
+# Application for Member Management.
 
-Bienvenidx, este es mi primer proyecto con Java. Se trata de una aplicación de escritorio administrativa para una peña de fútbol.
+Welcome, this is my first Java project. It's an administrative desktop application for a football bar.
 
-Funcionalidad: El usuario administrador puede, mediante CRUD, llevar un registro ordenado de las personas asociadas a la peña (agregar, actualizar y eliminar socios). También es posible realizar una búsqueda sencilla y óptima, mediante nombre o DNI, del socio al que le pertenece en caso de haber coincidencia.
+Tech Stack: Java, Swing, and MySql.
 
-Todavía está en proceso de desarrollo!
-Saludos.
+Functionality: The admin user can maintain an organized record of individuals associated with the bar (add, edit, search, and delete members). Searching for members is done by entering a name or ID, and if it belongs to a member, their details will be displayed, allowing to determine whether the person is a member or not.
