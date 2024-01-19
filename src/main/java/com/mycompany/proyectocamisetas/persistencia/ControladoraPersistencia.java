@@ -2,7 +2,6 @@
 package com.mycompany.proyectocamisetas.persistencia;
 
 import com.mycompany.proyectocamisetas.logica.Cliente;
-import com.mycompany.proyectocamisetas.logica.Producto;
 import com.mycompany.proyectocamisetas.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -12,15 +11,11 @@ import java.util.logging.Logger;
 public class ControladoraPersistencia {
     
     ClienteJpaController clienteJpa = new ClienteJpaController();
-    ProductoJpaController productoJpa = new ProductoJpaController();
 
-    public void guardar(Cliente cliente, Producto prod) {
+    public void guardar(Cliente cliente) {
         
         // Crear en la BD
       clienteJpa.create(cliente);
-       
-       // Crear en la BD
-      productoJpa.create(prod);
       
     }
 

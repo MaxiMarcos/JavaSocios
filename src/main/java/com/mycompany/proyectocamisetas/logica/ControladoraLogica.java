@@ -15,7 +15,6 @@ public class ControladoraLogica {
 
     public void guardar(String estadoPeña, String nombre, String dni, String metodoPago, String celular, String socioCai) {
         Cliente cliente = new Cliente();
-        Producto prod = new Producto();
         
         // Metodos del objeto producto
         cliente.setEstadoPeña(estadoPeña);
@@ -25,7 +24,7 @@ public class ControladoraLogica {
         cliente.setCelular(celular);
         cliente.setSocioCai(socioCai);
         
-        ControlPersis.guardar(cliente, prod);
+        ControlPersis.guardar(cliente);
     }
 
     public void borrarCliente(int num_cliente) {

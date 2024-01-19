@@ -4,6 +4,7 @@ package com.mycompany.proyectocamisetas.igu;
 import com.mycompany.proyectocamisetas.logica.Cliente;
 import com.mycompany.proyectocamisetas.logica.ControladoraLogica;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 public class BuscarDni extends javax.swing.JFrame {
