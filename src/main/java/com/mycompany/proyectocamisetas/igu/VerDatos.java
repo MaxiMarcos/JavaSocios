@@ -5,6 +5,7 @@ import com.mycompany.proyectocamisetas.logica.ControladoraLogica;
 import com.mycompany.proyectocamisetas.logica.Cliente;
 import java.util.List;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
@@ -13,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class VerDatos extends javax.swing.JFrame {
     
     ControladoraLogica control;
+    
 
     public VerDatos() {
         control = new ControladoraLogica();
@@ -164,6 +166,8 @@ public class VerDatos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+ 
+        
         if (miTabla.getRowCount() > 0) {
             // controlo que se haya seleccionado una fila
             if (miTabla.getSelectedRow()!=-1) {
@@ -171,9 +175,10 @@ public class VerDatos extends javax.swing.JFrame {
                 int num_cliente = Integer.parseInt (String.valueOf(miTabla.getValueAt (miTabla.getSelectedRow(), 0)));
                 
                 // abrir la interfaz de EdicionDatos
-                EdicionDatos pantallaModif = new EdicionDatos(num_cliente);
-                pantallaModif.setVisible(true);
-                pantallaModif.setLocationRelativeTo(null);
+                EdicionDatos pantalla = new EdicionDatos(num_cliente);
+                pantalla.setVisible(true);
+                pantalla.setLocationRelativeTo(this);
+                pantalla.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 
             }else
             mostrarMensaje ("no seleccionó nada", "Error", "Error al eliminar");
@@ -223,9 +228,10 @@ public class VerDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        BuscarDni pantallaBuscar = new BuscarDni();
-        pantallaBuscar.setVisible(true);
-        pantallaBuscar.setLocationRelativeTo(null); 
+        BuscarDni pantalla = new BuscarDni();
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(this);
+        pantalla.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     

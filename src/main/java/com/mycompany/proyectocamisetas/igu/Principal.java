@@ -1,10 +1,34 @@
 
 package com.mycompany.proyectocamisetas.igu;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
+        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                confirmarCierre();
+            }
+        });
+    }
+    
+        private void confirmarCierre() {
+        int confirm = JOptionPane.showOptionDialog(
+                null, "¿Estás seguro de que quieres cerrar la aplicación?",
+                "Confirmar Cierre", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, null, null);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            // Cierra la aplicación solo si se confirma
+            System.exit(0);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -108,18 +132,20 @@ public class Principal extends javax.swing.JFrame {
 
         VerDatos pantalla = new VerDatos();
         pantalla.setVisible(true);
-        pantalla.setLocationRelativeTo(null);
+        pantalla.setLocationRelativeTo(this);
+        pantalla.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        confirmarCierre();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
         CargaDatos pantalla = new CargaDatos();
         pantalla.setVisible(true);
-        pantalla.setLocationRelativeTo(null);
+        pantalla.setLocationRelativeTo(this);
+        pantalla.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed

@@ -21,15 +21,13 @@ com\mycompany\proyectocamisetas\logica\Cliente.class
 com\mycompany\proyectocamisetas\igu\VerDatos$5.class
 com\mycompany\proyectocamisetas\igu\EdicionDatos$1.class
 com\mycompany\proyectocamisetas\igu\VerDatos.class
-com\mycompany\proyectocamisetas\persistencia\ProductoJpaController.class
-com\mycompany\proyectocamisetas\logica\Producto.class
 com\mycompany\proyectocamisetas\igu\VerDatos$2.class
 com\mycompany\proyectocamisetas\persistencia\exceptions\NonexistentEntityException.class
 com\mycompany\proyectocamisetas\igu\EdicionDatos$4.class
 com\mycompany\proyectocamisetas\igu\EdicionDatos$2.class
 com\mycompany\proyectocamisetas\igu\BuscarDni$2.class
 com\mycompany\proyectocamisetas\igu\CargaDatos$3.class
-com\mycompany\proyectocamisetas\logica\Producto_.class
+com\mycompany\proyectocamisetas\igu\Principal$4.class
 com\mycompany\proyectocamisetas\igu\CargaDatos$6.class
 com\mycompany\proyectocamisetas\igu\Principal.class
 com\mycompany\proyectocamisetas\igu\BuscarDni$3.class
